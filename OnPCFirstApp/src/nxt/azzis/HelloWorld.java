@@ -95,7 +95,7 @@ public class HelloWorld extends Frame {
 		
 		Motor.A.stop();
 		
-		HelloWorld.hw = new HelloWorld("Key Listener Tester");
+		HelloWorld.hw = new HelloWorld("Key Listeneeer Tester");
 	}
 
 }
