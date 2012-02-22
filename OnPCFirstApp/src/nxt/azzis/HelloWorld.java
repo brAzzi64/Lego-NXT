@@ -36,6 +36,9 @@ public class HelloWorld extends Frame {
 				  }
 				});
 		
+		LegoOSCListener listener = new LegoOSCListener();
+		listener.init();
+		
 		robot = new RobotLogic();
 		addKeyListener(robot);
 		
