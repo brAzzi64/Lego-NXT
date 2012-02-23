@@ -1,10 +1,8 @@
 package nxt.azzis;
 
 import java.net.SocketException;
-
 import com.illposed.osc.OSCListener;
 import com.illposed.osc.OSCPortIn;
-import com.illposed.osc.OSCMessage;
 
 public class LegoOSCListener {
 
@@ -14,7 +12,7 @@ public class LegoOSCListener {
 		
 	}
 	
-	public Boolean init() {
+	public Boolean init(OSCListener listener) {
 		
 		try {
 			receiver = new OSCPortIn(8000);
@@ -22,12 +20,6 @@ public class LegoOSCListener {
 			e.printStackTrace();
 			return false;
 		}
-		
-		OSCListener listener = new OSCListener() {
-			public void acceptMessage(java.util.Date time, OSCMessage message) {
-				System.out.println("Message received: " + message.toString());
-			}
-		};
 		
 		receiver.addListener("/accxyz", listener);
 		receiver.startListening();

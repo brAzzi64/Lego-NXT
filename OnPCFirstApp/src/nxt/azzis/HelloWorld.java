@@ -21,26 +21,11 @@ public class HelloWorld extends Frame {
 		Panel p = new Panel();
 		l1 = new Label("NXT is Alive!");
 		p.add(l1);
-		
 		add(p);
 		
-		addKeyListener(
-				new TimedKeyListener() {
-			  public void KeyPressed(KeyEvent e) {
-				  	l1.setText("Key Pressed");
-				  	System.out.println("- " + e.getKeyCode());
-				  }
-				  public void KeyReleased(KeyEvent e) {
-					l1.setText("Key Released");
-					System.out.println("+ " + e.getKeyCode());
-				  }
-				});
-		
-		LegoOSCListener listener = new LegoOSCListener();
-		listener.init();
-		
 		robot = new RobotLogic();
-		addKeyListener(robot);
+		robot.registerAsKeyListener(this);
+		robot.registerAsOSCListener();
 		
 		setSize(400, 200);
 		setVisible(true);
